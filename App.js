@@ -4,21 +4,21 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { useNavigation } from '@react-navigation/native';
 import { useRoute } from '@react-navigation/native';
-import Adder from './Adder'
-import List from './List'
+import TodoForm from './TodoForm'
+import TodoList from './TodoList'
 
-function AdderScreen() {
+function TodoFormScreen() {
   const navigation = useNavigation();
   return (
-    <Adder navigation={navigation}/>
+    <TodoForm navigation={navigation}/>
   );
 }
 
-function ListScreen() {
+function TodoListScreen() {
   const navigation = useNavigation();
   const route = useRoute();
   return (
-    <List navigation={navigation} route={route}/>
+    <TodoList navigation={navigation} route={route}/>
   );
 }
 
@@ -45,8 +45,8 @@ const navigationListOptions={
 function MyStack() {
   return (
     <Stack.Navigator>
-      <Stack.Screen options={navigationAdderOptions} name="Add" component={AdderScreen} />
-      <Stack.Screen options={navigationListOptions} name="List" component={ListScreen} />
+      <Stack.Screen options={navigationAdderOptions} name="Add" component={TodoFormScreen} />
+      <Stack.Screen options={navigationListOptions} name="List" component={TodoListScreen} />
     </Stack.Navigator>
   );
 }
@@ -58,3 +58,4 @@ export default function App() {
     </NavigationContainer>
   );
 }
+
